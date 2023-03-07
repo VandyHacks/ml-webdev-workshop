@@ -9,11 +9,12 @@ const API_URL = "https://api-inference.huggingface.co/models/tuner007/pegasus_su
 const headers = {"Authorization": `Bearer ${process.env.REACT_APP_HUGGINGFACE_TOKEN}`}
 
 async function query(payload){
-	let response = await fetch(API_URL, {
+	const response = await fetch(API_URL, {
     method: 'POST',
     headers: headers,
-    body: JSON.stringify(payload)})
-	return response.json()
+    body: JSON.stringify(payload)
+  });
+	return response.json();
 }
 
 //https://www.smashingmagazine.com/2021/06/image-text-conversion-react-tesseract-js-ocr/
@@ -25,51 +26,52 @@ function App() {
  
   const handleChange = (event) => {
     setImagePath(URL.createObjectURL(event.target.files[0]));
-  }
+  };
  
   const handleClick = async () => {
     // Do the OCR magic here
-    let result = await Tesseract.recognize(
+    const result = await Tesseract.recognize(
       imagePath,'eng',
       { 
         logger: m => console.log(m) 
       }
-    )
-    let confidence = result.data.confidence
+    );
+    const confidence = result.data.confidence;
      
-    let text = result.data.text
+    const text = result.data.text;
     setText(text);
     
-    let payload = {
+    const payload = {
       "inputs": text,
-    }
+    };
 
     // Do the summarization magic here
-    let response = await query(payload)
-    let summary = response[0].summary_text
+    const response = await query(payload);
+    const summary = response[0].summary_text;
     setSummary(summary);
   }
  
   return (
     <div className="App">
       <main className="App-main">
-        <h3>Actual imagePath uploaded</h3>
-        <img 
-           src={imagePath} className="App-image" alt="logo"/>
-        
-          <h3>Extracted text</h3>
+        <h3>Uploaded Image</h3>
+        <img src={imagePath} className="App-image" alt="logo" />
+
+        <h3>Extracted text</h3>
         <div className="text-box">
-          <p> {text} </p>
+          <p>{ text }</p>
         </div>
+
         <h3>Summary text</h3>
         <div className="text-box">
-          <p> {summary} </p>
+          <p>{ summary }</p>
         </div>
+
         <input type="file" onChange={handleChange} />
-        <button onClick={handleClick} style={{height:50}}> convert to text</button>
+        <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
       </main>
     </div>
   );
 }
  
-export default App
+export default App;
