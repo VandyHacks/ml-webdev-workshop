@@ -36,8 +36,7 @@ function App() {
         logger: m => console.log(m) 
       }
     );
-    const confidence = result.data.confidence;
-     
+    
     const text = result.data.text;
     setText(text);
     
@@ -54,21 +53,26 @@ function App() {
   return (
     <div className="App">
       <main className="App-main">
-        <h3>Uploaded Image</h3>
-        <img src={imagePath} className="App-image" alt="logo" />
+        <h2>Image Summarizer</h2>
+        <input type="file" onChange={handleChange} />
+        { imagePath && <>
+          <h4>Selected Image</h4>
+          <img src={imagePath} className="App-image" alt="logo" />
+          <br />
+          <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
+        </> }
 
-        <h3>Extracted text</h3>
+        { text && <><h4>Extracted text</h4>
         <div className="text-box">
           <p>{ text }</p>
-        </div>
+        </div></> }
 
-        <h3>Summary text</h3>
+        { summary && <><h4>Summary text</h4>
         <div className="text-box">
           <p>{ summary }</p>
-        </div>
-
-        <input type="file" onChange={handleChange} />
-        <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
+        </div></> }
+        
+        <br /><br />
       </main>
     </div>
   );
