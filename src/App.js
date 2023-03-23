@@ -1,9 +1,9 @@
 
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import Tesseract from 'tesseract.js';
 import './App.css';
 
-// TODO: Make the paste stuff work - basically allow the user to paste an image into the app
+// TODO: Make the pdf stuff work
 
 const API_URL = "https://api-inference.huggingface.co/models/tuner007/pegasus_summarizer"
 const headers = {"Authorization": `Bearer ${process.env.REACT_APP_HUGGINGFACE_TOKEN}`}
@@ -25,7 +25,9 @@ function App() {
   const [summary, setSummary] = useState("");
  
   const handleChange = (event) => {
-    setImagePath(URL.createObjectURL(event.target.files[0]));
+    if (event.target.files && event.target.files[0] && event.target.files[0].type.includes("image")){
+      setImagePath(URL.createObjectURL(event.target.files[0]));
+    }
   };
  
   const handleClick = async () => {
@@ -49,11 +51,27 @@ function App() {
     const summary = response[0].summary_text;
     setSummary(summary);
   }
+
+  const handlePaste = (event) => {
+    console.log(event.clipboardData.files[0]);
+    if (event.clipboardData.files && event.clipboardData.files[0] && event.clipboardData.files[0].type.includes("image")) {
+      setImagePath(URL.createObjectURL(event.clipboardData.files[0]));
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("paste", handlePaste);
+
+    return () => {
+      window.removeEventListener("paste", handlePaste);
+    };
+  }, []);
  
   return (
     <div className="App">
       <main className="App-main">
         <h2>Image Summarizer</h2>
+        <h3>Choose a file or paste to upload.</h3>
         <input type="file" onChange={handleChange} />
         { imagePath && <>
           <h4>Selected Image</h4>
