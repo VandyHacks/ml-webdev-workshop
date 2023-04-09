@@ -3,22 +3,27 @@ import { useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  // Kyle stuff (hooks):
   const [imagePath, setImagePath] = useState("");
   const [text, setText] = useState("");
   const [summary, setSummary] = useState("");
  
+  // kyle stuff (functions):
   const handleChange = (event) => {
     if (event.target.files && event.target.files[0] && event.target.files[0].type.includes("image")){
       setImagePath(URL.createObjectURL(event.target.files[0]));
     }
   };
  
+  // Kyle stuff (hooks )
   const handleClick = async () => {
     // Do the OCR magic here
     setText("Example text");
     setSummary("Example summary");
   };
  
+  // All of below is Rachael stuff unless otherwise noted
+  // Kyle will talk about/add the onChange and onClick functions
   return (
     <div className="App">
       <main className="App-main">
@@ -31,11 +36,28 @@ function App() {
           <br />
           <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
         </> }
+        {/* Instead of the above, do:
+          <h4>Selected Image</h4>
+          <img src="https://www.w3schools.com/images/lamp.jpg" className="App-image" alt="logo" />
+          <br />
+          <button >Convert to text</button>
+        */}
 
         { text && <><h4>Extracted text</h4>
         <div className="text-box">
           <p>{ text }</p>
         </div></> }
+
+        {/* Instead of the above, do:
+        <h4>Extracted text</h4>
+        <div className="text-box">
+          <p>Filler</p>
+        </div> } 
+        
+        <h4>Summary text</h4>
+        <div className="text-box">
+          <p>Summary</p>
+        </div>*/}
 
         { summary && <><h4>Summary text</h4>
         <div className="text-box">
