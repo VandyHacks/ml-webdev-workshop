@@ -30,25 +30,29 @@ function App() {
         <h2>Image Summarizer</h2>
         <h3>Choose a file or paste to upload.</h3>
         <input type="file" onChange={handleChange} />
-        { imagePath && <>
+        {/* { imagePath && <>
           <h4>Selected Image</h4>
           <img src={imagePath} className="App-image" alt="logo" />
           <br />
           <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
-        </> }
-        {/* Instead of the above, do:
+        </> } */}
           <h4>Selected Image</h4>
           <img src="https://www.w3schools.com/images/lamp.jpg" className="App-image" alt="logo" />
           <br />
           <button >Convert to text</button>
-        */}
+       
 
-        { text && <><h4>Extracted text</h4>
+        {/* { text && <><h4>Extracted text</h4>
         <div className="text-box">
           <p>{ text }</p>
-        </div></> }
+        </div></> } 
+        
+        { summary && <><h4>Summary text</h4>
+        <div className="text-box">
+          <p>{ summary }</p>
+        </div></> }*/}
 
-        {/* Instead of the above, do:
+        Instead of the above, do:
         <h4>Extracted text</h4>
         <div className="text-box">
           <p>Filler</p>
@@ -57,12 +61,7 @@ function App() {
         <h4>Summary text</h4>
         <div className="text-box">
           <p>Summary</p>
-        </div>*/}
-
-        { summary && <><h4>Summary text</h4>
-        <div className="text-box">
-          <p>{ summary }</p>
-        </div></> }
+        </div>
         
         <br /><br />
       </main>
