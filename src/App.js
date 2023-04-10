@@ -2,6 +2,12 @@
 import { useState, useEffect} from 'react';
 import './App.css';
 
+// change class to className
+// Add state
+// Display state in the UI
+// Add event handlers
+// Add event handlers to the UI
+
 function App() {
   // Kyle stuff (hooks):
   const [imagePath, setImagePath] = useState("");
@@ -56,7 +62,7 @@ function App() {
         <h4>Extracted text</h4>
         <div className="text-box">
           <p>Filler</p>
-        </div> } 
+        </div> 
         
         <h4>Summary text</h4>
         <div className="text-box">
