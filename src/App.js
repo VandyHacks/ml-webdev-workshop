@@ -7,6 +7,7 @@ import './App.css';
 // Display state in the UI
 // Add event handlers
 // Add event handlers to the UI
+// CHALLENGE: Make them write the function to handle click
 
 function App() {
   // Kyle stuff (hooks):
@@ -34,16 +35,16 @@ function App() {
     <div className="App">
       <main className="App-main">
         <h2>Image Summarizer</h2>
-        <h3>Choose a file or paste to upload.</h3>
+        <h3>Choose a file to upload.</h3>
         <input type="file" onChange={handleChange} />
         {/* { imagePath && <>
           <h4>Selected Image</h4>
           <img src={imagePath} className="App-image" alt="logo" />
           <br />
-          <button onClick={handleClick} style={{ "height": 50 }}>Convert to text</button>
+          <button onClick={handleClick}>Convert to text</button>
         </> } */}
           <h4>Selected Image</h4>
-          <img src="https://www.w3schools.com/images/lamp.jpg" className="App-image" alt="logo" />
+          <img src="light.jpg" className="App-image" alt="logo" />
           <br />
           <button >Convert to text</button>
        
