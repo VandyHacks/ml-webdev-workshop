@@ -59,7 +59,7 @@ function App() {
           <p>{ summary }</p>
         </div></> }*/}
 
-        Instead of the above, do:
+        {/* Instead of the above, do: */}
         <h4>Extracted text</h4>
         <div className="text-box">
           <p>Filler</p>
