@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- We will use an h2 tag to enclose 
+        the headers of our web page-->
+    <h2>Image Summarizer</h2>
+
+    <!-- next the web app as you can see has a
+         title asking a user to choose a file 
+
+        so we will create a new header tag h3 
+        which we can write this in-->
+
+    <h3>Choose a file or paste to upload.</h3>
+
+    <!-- Next to make start making our web page interactive we need to implement a button
+    a user can click to accept a file from our computer-->
+
+    <!-- this may sound difficult but HTML makes this quite easy and 
+    can be accomplished in a single line-->
+
+    <!-- so we are gonna type out angle bracket input and type = "file" this will
+    allow us to select and upload files next onChange is an event function which
+    will be specifies to a handleChange which Kyle will further explain once we implement 
+    this code into react but for now we can think of it as a button and when we press it 
+    it will allow us to select a file from out computers-->
+
+    <!-- lastly we can close off our input tag with /> to complete this line-->
+    <input type="file" />
+
+    <!-- now we can add some more text to our webpage
+    we can make another header tag of h4 and we will write in Selcted image to 
+    later show where our extracted text will go-->
+    <h4>Selected Image</h4>
+
+    <!-- Klyle is later going to show how we can extract the test of this file but
+    for now I can show as a bonus feature how you can upload an image onto your web page
+    
+    -->
+    <img src="lightbulb_115137.ico" class="App-image" alt="logo" />
+
+    <!-- now we can insert a break line for spacing purposes and we will create a 
+    button wich can be built through a pre implemented tag in HTML which is as you 
+    would guess button and we will label it as convert to text-->
+    <br />
+    <button>Convert to text</button>
+
+    <!-- sp because we want the next line of text we write on the web page to have the same 
+    style as the "Selected image text we will keep out h4 tag and now write Extracted text in it"-->
+    <h4>Extracted text</h4>
+
+    <!--So when creating a new class name in HTML you want to use a div tag which will create a 
+        generic container to group together the testboxes that Kyle will later fully implement in react
+        
+        Our project as you can see will need three text boxes so for now I will code
+        three div tags with the className text-box and write filler text inside 
+        for now-->
+
+    <!-- also the p tag is very commmon in HTML and referenced paragraphs so if you 
+    are writing text on your web page that is not a header you can wrap that text in
+    in a p tag-->
+    <div class="text-box">
+      <p>{ Filler }</p>
+    </div>
+
+    <h4>Summary text</h4>
+    <div class="text-box">
+      <p>{ Summary }</p>
+    </div>
+
+    <h4>Summary text</h4>
+    <div class="text-box">
+      <p>{ summary }</p>
+    </div>
+
+    <!-- finally we will add onw last break line and that will conclude the 
+    studcture of the HTML that we will later implement into our react app!-->
+    <br /><br />
+  </body>
+</html>

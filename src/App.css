@@ -1,12 +1,12 @@
 .App {
   text-align: center;
 }
- 
+
 .App-image {
   width: 40vw;
   pointer-events: none;
 }
- 
+
 .App-main {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,7 +17,7 @@
   font-size: calc(7px + 2vmin);
   color: white;
 }
- 
+
 .text-box {
   background: #fff;
   color: #333;

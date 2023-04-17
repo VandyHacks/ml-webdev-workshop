@@ -1,0 +1,38 @@
+/* so you can see in react we use .App to reference the
+files wil the class name app soo that we can style those files*/
+
+/*test align center will center all the headers and
+other componets we add so they are no longer against
+the far right of the screen*/
+body {
+  text-align: center;
+  /* we can change our web pages background*/
+  background-color: #282c32;
+
+  /* the flex command creates a container which will keep all the 
+    features in the center of the screen*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* this will edit the headers*/
+  font-size: calc(7px + 2 vmin);
+  color: white;
+}
+
+/*this code will style the file that we select
+as Kyle showed we implemented a way to make that file
+appear on the screen when you upload a file and this 
+code will make it so it only takes up a certain width
+on the screen*/
+.App-image {
+  width: 80px;
+}
+
+.text-box {
+  background-color: white;
+  color: #282c32;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 75%;
+}
