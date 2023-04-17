@@ -8,15 +8,6 @@ import './App.css';
 const API_URL = "https://api-inference.huggingface.co/models/tuner007/pegasus_summarizer"
 const headers = {"Authorization": `Bearer ${process.env.REACT_APP_HUGGINGFACE_TOKEN}`}
 
-async function query(payload){
-	const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(payload)
-  });
-	return response.json();
-}
-
 //https://www.smashingmagazine.com/2021/06/image-text-conversion-react-tesseract-js-ocr/
  
 function App() {
@@ -45,8 +36,13 @@ function App() {
     };
 
     // Do the summarization magic here
-    const response = await query(payload);
-    const summary = response[0].summary_text;
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    const summary = data[0].summary_text;
     setSummary(summary);
   }
  
